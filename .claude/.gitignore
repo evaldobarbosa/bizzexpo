@@ -1,0 +1,5 @@
+# Configurações locais do usuário
+settings.local.json
+
+# Planos temporários
+plans/
