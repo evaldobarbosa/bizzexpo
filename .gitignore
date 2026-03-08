@@ -1,0 +1,42 @@
+# Subprojetos (repositórios separados)
+api/
+front/
+
+# Dependências
+node_modules/
+vendor/
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+
+# Cache
+.cache/
+*.cache
+
+# Temporários
+tmp/
+temp/

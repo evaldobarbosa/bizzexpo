@@ -1,0 +1,65 @@
+FROM php:8.3-cli
+
+LABEL maintainer="Code2"
+LABEL description="BizzExpo API - Development"
+
+# Argumentos
+ARG WWWGROUP=1000
+ARG WWWUSER=1000
+
+# Variáveis de ambiente
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=America/Sao_Paulo
+
+# Instalar dependências do sistema
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    libpq-dev \
+    libzip-dev \
+    libicu-dev \
+    zip \
+    unzip \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install \
+        pdo \
+        pdo_pgsql \
+        pgsql \
+        mbstring \
+        exif \
+        pcntl \
+        bcmath \
+        gd \
+        zip \
+        intl \
+        opcache \
+    && pecl install redis \
+    && docker-php-ext-enable redis \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Configurar PHP
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+
+# Configurações customizadas do PHP
+COPY docker/php/php.ini /usr/local/etc/php/conf.d/99-custom.ini
+
+# Instalar Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Criar usuário para evitar problemas de permissão
+RUN groupadd --force -g $WWWGROUP developer \
+    && useradd -ms /bin/bash --no-user-group -g $WWWGROUP -u $WWWUSER developer
+
+# Diretório de trabalho
+WORKDIR /var/www/html
+
+# Trocar para usuário não-root
+USER developer
+
+EXPOSE 8000
+
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]

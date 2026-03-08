@@ -1,0 +1,149 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: bizzexpo-api
+    working_dir: /var/www/html
+    volumes:
+      - ./api:/var/www/html
+      - ./api/vendor:/var/www/html/vendor
+    ports:
+      - "8095:8080"
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=bizzexpo
+      - DB_USERNAME=bizzexpo
+      - DB_PASSWORD=bizzexpo
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - QUEUE_CONNECTION=redis
+      - CACHE_STORE=redis
+      - SESSION_DRIVER=redis
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - bizzexpo-network
+    command: php artisan serve --host=0.0.0.0 --port=8080
+
+  queue:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: bizzexpo-queue
+    working_dir: /var/www/html
+    volumes:
+      - ./api:/var/www/html
+      - ./api/vendor:/var/www/html/vendor
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=bizzexpo
+      - DB_USERNAME=bizzexpo
+      - DB_PASSWORD=bizzexpo
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - QUEUE_CONNECTION=redis
+      - CACHE_STORE=redis
+    depends_on:
+      - api
+    networks:
+      - bizzexpo-network
+    command: php artisan queue:work --tries=3 --timeout=90
+
+  scheduler:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: bizzexpo-scheduler
+    working_dir: /var/www/html
+    volumes:
+      - ./api:/var/www/html
+      - ./api/vendor:/var/www/html/vendor
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=bizzexpo
+      - DB_USERNAME=bizzexpo
+      - DB_PASSWORD=bizzexpo
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - api
+    networks:
+      - bizzexpo-network
+    command: sh -c "while true; do php artisan schedule:run --verbose --no-interaction & sleep 60; done"
+
+  front:
+    image: node:22-alpine
+    container_name: bizzexpo-front
+    working_dir: /app
+    volumes:
+      - ./front:/app
+      - front_node_modules:/app/node_modules
+    ports:
+      - "5190:5173"
+    environment:
+      - NODE_ENV=development
+    networks:
+      - bizzexpo-network
+    command: sh -c "corepack enable && corepack prepare pnpm@latest --activate && pnpm install && pnpm dev --host"
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: bizzexpo-postgres
+    environment:
+      POSTGRES_DB: bizzexpo
+      POSTGRES_USER: bizzexpo
+      POSTGRES_PASSWORD: bizzexpo
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bizzexpo -d bizzexpo"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - bizzexpo-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: bizzexpo-redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - bizzexpo-network
+
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: bizzexpo-mailpit
+    networks:
+      - bizzexpo-network
+
+networks:
+  bizzexpo-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  front_node_modules:

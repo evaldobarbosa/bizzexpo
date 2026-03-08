@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BizzExpo - Password Recovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0048ad",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1723",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    tailwind.config.theme.extend.colors['accent-yellow'] = '#ffb800'; tailwind.config.theme.extend.colors['accent-red'] = '#e63946';</script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center p-4">
+<!-- Main Container -->
+<div class="w-full max-w-[480px] bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+<!-- Top App Bar / Navigation Header -->
+<div class="flex items-center p-4 border-b border-slate-100 dark:border-slate-800">
+<a class="text-slate-900 dark:text-slate-100 flex size-10 items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors" href="#" style="">
+<span class="material-symbols-outlined" style="">arrow_back</span>
+</a>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 ml-2" style="">Password Recovery</h2>
+</div>
+<div class="p-6 md:p-8">
+<!-- Platform Branding/Logo placeholder -->
+<div class="mb-8 flex items-center gap-2">
+<div class="flex gap-1">
+<div class="h-8 w-2 bg-primary rounded-full"></div>
+<div class="h-8 w-2 bg-accent-yellow rounded-full"></div>
+<div class="h-8 w-2 bg-accent-red rounded-full"></div>
+</div>
+<span class="text-2xl font-bold tracking-tight text-primary">BizzExpo</span>
+</div>
+<!-- Headline & Description -->
+<div class="mb-8">
+<h1 class="text-slate-900 dark:text-slate-100 text-[32px] font-bold leading-tight pb-3" style="">Forgot your password?</h1>
+<p class="text-slate-600 dark:text-slate-400 text-base font-normal leading-relaxed" style="">
+                        No worries, it happens. Enter the email address associated with your account and we'll send you a link to reset your password.
+                    </p>
+</div>
+<!-- Recovery Form -->
+<form class="space-y-6" onsubmit="return false;">
+<div class="flex flex-col gap-2">
+<label class="text-slate-900 dark:text-slate-100 text-sm font-semibold leading-normal" style="">
+                            Email Address
+                        </label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" style="">mail</span>
+<input class="form-input flex w-full rounded-lg text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 focus:border-primary h-14 pl-12 pr-4 placeholder:text-slate-400 text-base font-normal transition-all" placeholder="name@company.com" required="" type="email"/>
+</div>
+</div>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-primary hover:bg-primary/90 text-white text-base font-bold leading-normal tracking-wide transition-colors shadow-lg shadow-primary/20" style="" type="submit">
+<span class="" style="">Send recovery link</span>
+</button>
+</form>
+<!-- Footer Action -->
+<div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 text-center">
+<a class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold text-sm transition-colors group" href="#" style="">
+<span class="material-symbols-outlined text-[18px]" style="">arrow_back</span>
+                        Back to Login
+                    </a>
+</div>
+</div>
+</div>
+<!-- Decorative Background Elements -->
+<div class="fixed top-20 right-[-10%] w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+<div class="fixed bottom-10 left-[-5%] w-80 h-80 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+<footer class="mt-8 text-slate-400 text-xs">
+            © 2024 BizzExpo Platform. All rights reserved.
+        </footer>
+</div>
+</body></html>

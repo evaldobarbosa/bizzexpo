@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0048ad",
+              "background-light": "#f5f7f8",
+              "background-dark": "#0f1723",
+              "success": "#22c55e",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<title>Confirmação de Inscrição - BizzExpo</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex min-h-screen w-full max-w-[480px] mx-auto flex-col bg-background-light dark:bg-background-dark overflow-x-hidden pb-24">
+<!-- Header -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-slate-200 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined cursor-pointer">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-12">Confirmação</h2>
+</div>
+<!-- Success Message Section -->
+<div class="flex flex-col items-center px-6 pt-10 pb-6 text-center">
+<div class="w-20 h-20 bg-success/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-success text-5xl">check_circle</span>
+</div>
+<h1 class="text-slate-900 dark:text-slate-100 tracking-tight text-3xl font-bold leading-tight mb-2">Inscrição confirmada!</h1>
+<p class="text-slate-600 dark:text-slate-400 text-base font-normal leading-relaxed">
+                Olá, João! Sua inscrição no <span class="font-semibold text-primary">Tech Summit 2026</span> foi realizada com sucesso.
+            </p>
+</div>
+<!-- Ticket / QR Code Card -->
+<div class="px-6 py-4">
+<div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="p-6 flex flex-col items-center border-b border-dashed border-slate-200 dark:border-slate-700 relative">
+<!-- Decorative notches for ticket look -->
+<div class="absolute -bottom-3 -left-3 w-6 h-6 bg-background-light dark:bg-background-dark rounded-full"></div>
+<div class="absolute -bottom-3 -right-3 w-6 h-6 bg-background-light dark:bg-background-dark rounded-full"></div>
+<div class="w-48 h-48 bg-white p-2 rounded-lg mb-4 border border-slate-100">
+<img alt="QR Code para acesso ao evento" class="w-full h-full" data-alt="QR Code minimalista para check-in do evento" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2OcMAdmo5BDt6KMQOTtpy0e_2qLzmeLyNW66867hM00jUa1vYw2ZNh9TpLtEr3KX6eYobEfX4_gcIvqDeKxGc35lFgYMVKfQ3203kOKMl_Uik_F4QU0fnrXNdjtS5ao5WvI5bf-ctB1YqaF5qoSL_XROSO6DGvb8bE1Ug4qHLCicjExTXL7Bh2tKvglm7xq_STvck-OXbsJBbryBzDsLoKmID0aXIBIaA7_U9pB3A8dw25yUpCLLp5eTxRIf_aF8aLkzAfszYAdA"/>
+</div>
+<p class="text-xs font-mono text-slate-400 uppercase tracking-widest">TS2026-JOAO-0892</p>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase font-semibold">Data e Horário</p>
+<p class="text-sm font-medium">15 de Outubro, 2026 • 09:00 - 18:00</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase font-semibold">Localização</p>
+<p class="text-sm font-medium">Expo Center Norte, Pavilhão Azul</p>
+<p class="text-xs text-slate-400">Rua José Bernardo Pinto, 333 - São Paulo, SP</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="px-6 py-4 flex flex-col gap-3">
+<button class="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-xl transition-colors shadow-md">
+<span class="material-symbols-outlined">calendar_add_on</span>
+                Adicionar ao calendário
+            </button>
+<button class="flex items-center justify-center gap-2 w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 font-semibold py-4 rounded-xl transition-colors border border-slate-200 dark:border-slate-700">
+<span class="material-symbols-outlined">map</span>
+                Ver no mapa
+            </button>
+</div>
+<!-- Event Visual Helper -->
+<div class="px-6 py-4">
+<div class="w-full aspect-video rounded-xl overflow-hidden grayscale opacity-80 border border-slate-200 dark:border-slate-800">
+<img alt="Mapa do local do evento" class="w-full h-full object-cover" data-alt="Mapa simplificado mostrando a localização do Expo Center Norte" data-location="São Paulo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTs9tTTTEM8thCRAK5gSLr5wHu5A5nectsDVlgeb_Eq6IDOa9b-dVPjHESJaOLN4BKn1x-GCvN6ls5_IqXVVCSHGm98RJAiiWVTJwPjkOoZ54WSz_41Xe4ALesc5ImR_ksYRoZZg5gLklMDd1AePQui-UooK6FcjAzHKvB-0NKehZMBEErCzm75LdeHZvrCzc1Ph9Dqfvo4sxCE_Cw8YI1WHxpa5kWbwTInjCdTAAj-2k9LOlOjJ9H09nK7mBnIgoMHz0gHLcg4Hk"/>
+</div>
+</div>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-0 left-0 right-0 max-w-[480px] mx-auto bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-4 pb-6 pt-2 flex justify-around items-center z-20">
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-medium">Início</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[10px] font-medium">Eventos</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">confirmation_number</span>
+<span class="text-[10px] font-medium">Ingressos</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium">Perfil</span>
+</a>
+</div>
+</div>
+</body></html>

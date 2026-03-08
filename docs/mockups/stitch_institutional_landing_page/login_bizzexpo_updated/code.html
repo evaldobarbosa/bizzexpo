@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0048ad",
+                        "brand-yellow": "#ffb800",
+                        "brand-red": "#e63946",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1723",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<!-- Header with Logo -->
+<div class="mb-8 mt-4 flex items-center justify-center gap-2">
+<div class="flex gap-1">
+<div class="h-8 w-2 bg-primary rounded-full"></div>
+<div class="h-8 w-2 bg-brand-yellow rounded-full"></div>
+<div class="h-8 w-2 bg-brand-red rounded-full"></div>
+</div>
+<span class="text-2xl font-bold tracking-tight text-primary">BizzExpo</span>
+</div>
+<!-- Hero Image Section -->
+<div class="flex w-full grow bg-background-light dark:bg-background-dark @container p-4">
+<div class="w-full gap-1 overflow-hidden bg-slate-200 dark:bg-slate-800 aspect-[16/9] rounded-xl flex shadow-sm">
+<div class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none flex-1" data-alt="Modern professional business conference hall with stage lights" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChaIbiSxiRe7_WLTEYiJa1hy2_qyyuu44xXghRQ4i-w2kxSQ5HfbmqZ5dik1sRemWEMLkqU7Pvw3-PgfCN0sKvm_eyg8vmXKCutew1rFrKw3jQvnqCZG5cC_io871lcZhHNVdK64f7jkK5TGyFBze0Hh-G5-Mnk1yfQ_WOKswosYIxywswfbFoKy5fIgUX7M4K0SMJ3TuLZCeS_mDlY50BGvz8SMyTlp6uZfTR8xVWAGd0BRMpUhoaSpIVi_iVByLmtSPzpCS_oBw");'>
+</div>
+</div>
+</div>
+<!-- Welcome Headline -->
+<div class="px-4 pt-6 pb-2">
+<h1 class="text-slate-900 dark:text-slate-100 tracking-tight text-[32px] font-bold leading-tight text-center">Welcome back</h1>
+<p class="text-slate-500 dark:text-slate-400 text-center text-sm mt-1">Please enter your details to sign in</p>
+</div>
+<!-- Login Form -->
+<div class="flex flex-col gap-1 px-4 py-3">
+<div class="flex flex-col w-full py-2">
+<label class="flex flex-col flex-1">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold leading-normal pb-2">Email address</p>
+<input class="form-input flex w-full rounded-lg text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 h-14 placeholder:text-slate-400 p-[15px] text-base font-normal" placeholder="alex@company.com" type="email"/>
+</label>
+</div>
+<div class="flex flex-col w-full py-2">
+<label class="flex flex-col flex-1">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold leading-normal pb-2">Password</p>
+<div class="flex w-full flex-1 items-stretch">
+<input class="form-input flex w-full min-w-0 flex-1 rounded-l-lg text-slate-900 dark:text-slate-100 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 h-14 placeholder:text-slate-400 p-[15px] border-r-0 text-base font-normal" placeholder="••••••••" type="password"/>
+<div class="text-slate-400 flex border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 items-center justify-center pr-[15px] rounded-r-lg border-l-0">
+<span class="material-symbols-outlined">visibility</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Forgot Password -->
+<div class="flex justify-end pt-1">
+<a class="text-primary text-sm font-semibold hover:underline" href="#">Forgot password?</a>
+</div>
+<!-- Login Button -->
+<div class="pt-6">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-lg shadow-lg transition-colors flex items-center justify-center gap-2">
+                    Log In
+                    <span class="material-symbols-outlined text-xl">login</span>
+</button>
+</div>
+<!-- Separator -->
+<div class="relative flex items-center py-8">
+<div class="flex-grow border-t border-slate-300 dark:border-slate-700"></div>
+<span class="flex-shrink mx-4 text-slate-500 text-sm font-medium">Or login with</span>
+<div class="flex-grow border-t border-slate-300 dark:border-slate-700"></div>
+</div>
+<!-- Social Logins -->
+<div class="flex gap-4 pb-8">
+<button class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all" type="button">
+<img alt="" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaSrXhuIiqjh4xIk4yyy5VCs35Pmg_M0aDSUDTZnO3kEl1nAmBTdKlQTsdbIvk25J-owFvIB0Z1a8h7dW6Ik0-SQE1qTibu_i5vEz37ktcuK6fmGpgi6CT62P4_H6Hdo85VNziekSo_jit4Qaf-VpKT1NIEwLWE-7Lh-OCv1d0-9FzHl6klvQd6T6VlWZE_Z7uYiUR99by7Gu0JhWs4YLwUliTY0rGr8RWqCmd7xIWxJ1d_4LcXNaIQlA4yidDCyfG8Gf6XrO5i10"/>
+<span class="text-sm font-medium">Google</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all" type="button">
+<svg class="w-5 h-5 text-[#0077B5]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+</svg>
+<span class="text-sm font-medium">LinkedIn</span>
+</button>
+</div>
+</div>
+<!-- Signup Footer -->
+<div class="mt-auto p-8 border-t border-slate-200 dark:border-slate-800 flex justify-center bg-white dark:bg-slate-900/50">
+<p class="text-slate-600 dark:text-slate-400 text-sm">
+                Don't have an account? 
+                <a class="text-primary font-bold hover:underline ml-1" href="#">Sign up</a>
+</p>
+</div>
+<!-- Accent Brand Elements -->
+<div class="absolute bottom-0 left-0 w-full h-1 flex">
+<div class="h-full bg-primary flex-1"></div>
+<div class="h-full bg-brand-yellow w-1/4"></div>
+<div class="h-full bg-brand-red w-1/4"></div>
+</div>
+</div>
+</body></html>

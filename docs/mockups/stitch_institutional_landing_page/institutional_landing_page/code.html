@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0047AB",
+                        "accent-yellow": "#FFD700",
+                        "accent-red": "#EE2737",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1723",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<!-- TopAppBar -->
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center justify-between p-4 max-w-7xl mx-auto">
+<div class="text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="text-white font-bold text-xl">B</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-black tracking-tight uppercase">BizzExpo</h2>
+</div>
+<div class="flex items-center">
+<button class="text-primary dark:text-accent-yellow text-sm font-bold px-4 py-2 rounded-lg hover:bg-primary/10 transition-colors">
+                    Criar conta
+                </button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative overflow-hidden pt-8 pb-16 px-4 max-w-7xl mx-auto">
+<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-6">
+<div class="inline-flex items-center gap-2 bg-primary/10 text-primary dark:bg-primary/20 dark:text-slate-100 px-3 py-1 rounded-full text-xs font-bold w-fit">
+<span class="w-2 h-2 rounded-full bg-accent-red"></span>
+                    NOVA PLATAFORMA 2.0
+                </div>
+<h1 class="text-slate-900 dark:text-white text-4xl font-black leading-[1.1] tracking-tight">
+                    Transforme seu evento em <span class="text-primary">inteligência comercial</span>
+</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                    Credenciamento inteligente, captura de leads em tempo real e analytics avançado para feiras e exposições.
+                </p>
+<div class="flex flex-col gap-3 sm:flex-row">
+<button class="flex items-center justify-center bg-primary text-white h-14 px-8 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform active:scale-95">
+                        Começar agora
+                    </button>
+<button class="flex items-center justify-center bg-white dark:bg-slate-800 text-slate-900 dark:text-white border-2 border-slate-200 dark:border-slate-700 h-14 px-8 rounded-xl font-bold text-lg hover:bg-slate-50 transition-colors">
+                        Ver demonstração
+                    </button>
+</div>
+</div>
+<div class="relative mt-8">
+<div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-primary/20 blur-[100px] rounded-full"></div>
+<div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2 shadow-2xl">
+<img alt="Dashboard BizzExpo" class="rounded-xl w-full aspect-video object-cover" data-alt="SaaS dashboard with event analytics and charts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaf3Qf5P1Enb1hQwoWRfo9KJ-dzEUPDnSkur6-vWKDhKzQ0bb7qqrdVVPqsn17qdcUKd6QCiKC3i0VluJhpdNJB-1LVMmp3A7poDpsSbLQXiMTD1BbVOrYa_71x-WUxa4LXwyO9gr8Szt_Qk06RK3uLbM8UQvNj9ClxTyhESu7Sg-6nHsYM2vbrtw_-F9DcoAMVP-MLhWSCcVmDaXDh9HPAPUw553FlGG73g5RX43dKOwYou-eRpzlMR3j0v3rKojWGag95zRS8o4"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Problems Section -->
+<section class="bg-slate-100 dark:bg-slate-900/50 py-16 px-4">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-slate-900 dark:text-white text-3xl font-black leading-tight mb-2">Desafios todos os dias</h2>
+<p class="text-slate-600 dark:text-slate-400 mb-8">Gerenciar um evento não precisa ser um pesadelo logístico.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Card 1 -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-accent-red/50 transition-colors group">
+<div class="w-12 h-12 bg-accent-red/10 text-accent-red rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent-red group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">timer_off</span>
+</div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold mb-2">Filas longas</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Evite gargalos no credenciamento com check-in ultra rápido via QR Code.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors group">
+<div class="w-12 h-12 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">data_loss_prevention</span>
+</div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold mb-2">Dados perdidos</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Centralize todas as informações em um só lugar, com backup em nuvem em tempo real.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-accent-yellow/50 transition-colors group">
+<div class="w-12 h-12 bg-accent-yellow/10 text-slate-800 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent-yellow transition-colors">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold mb-2">ROI invisível</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Saiba exatamente o retorno financeiro do seu evento com métricas precisas.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 group">
+<div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">hub</span>
+</div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold mb-2">Sem integração</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Sincronize com RD Station, HubSpot e Salesforce automaticamente.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 group">
+<div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">settings_suggest</span>
+</div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold mb-2">Processos manuais</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Reduza o trabalho manual em até 80% com automação de fluxo de e-mails.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 group">
+<div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">group_add</span>
+</div>
+<h3 class="text-slate-900 dark:text-white text-lg font-bold mb-2">Expositores sem leads</h3>
+<p class="text-slate-600 dark:text-slate-400 text-sm">Forneça ferramentas de coleta de dados de alta performance para seus parceiros.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solution Section -->
+<section class="py-16 px-4 bg-primary text-white overflow-hidden">
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+<div class="w-full lg:w-1/2">
+<img alt="Event Solution" class="rounded-3xl shadow-2xl border-4 border-white/20" data-alt="People attending a professional business conference" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ2Akh4u58FrqyZqD6QVV_gJLeDWbPwvUxCq1FFqZd6ONVDHdxPGN9jz1ltScLWdlZCWIxNUSpQpdk2gTnz1jDBVvQ5F7Q28nsSq1427uHsnnStdLlXO5H6vuKBv5l7ec597s_AYgpg_Y11Nb0KRYSaD5x91D0gg8UvjeHcK9-OEDqi4vckIo-_mgXS-uq6cKcjRvLnEZljTumaKDFZvBlTKLbJWNHrXhP2KpkgJqrvq1n1nuwacRpir7zzDnop0LBM0X1VJsCEJM"/>
+</div>
+<div class="w-full lg:w-1/2">
+<h2 class="text-4xl font-black mb-6 leading-tight">BizzExpo resolve tudo isso</h2>
+<p class="text-white/80 text-lg mb-8">Nossa plataforma foi desenhada para eliminar atritos e maximizar o valor gerado para organizadores e visitantes.</p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent-yellow">check_circle</span>
+<span class="font-medium">Gestão completa do ciclo de vida do evento</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent-yellow">check_circle</span>
+<span class="font-medium">Dashboard de KPIs em tempo real</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent-yellow">check_circle</span>
+<span class="font-medium">Aplicativo exclusivo para expositores</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent-yellow">check_circle</span>
+<span class="font-medium">Suporte técnico especializado 24/7</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Features Section Tabs -->
+<section class="py-16 px-4 max-w-7xl mx-auto">
+<h2 class="text-slate-900 dark:text-white text-3xl font-black text-center mb-10">Tudo o que você precisa</h2>
+<div class="flex flex-wrap justify-center gap-2 mb-8 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+<button class="flex-1 min-w-[100px] py-3 px-4 bg-white dark:bg-slate-700 text-primary dark:text-white shadow-sm rounded-lg font-bold text-sm">Gestão</button>
+<button class="flex-1 min-w-[100px] py-3 px-4 text-slate-500 font-medium text-sm">Inscrição</button>
+<button class="flex-1 min-w-[100px] py-3 px-4 text-slate-500 font-medium text-sm">Check-in</button>
+<button class="flex-1 min-w-[100px] py-3 px-4 text-slate-500 font-medium text-sm">Leads</button>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col md:flex-row gap-8 items-center">
+<div class="w-full md:w-1/2">
+<h3 class="text-2xl font-black text-slate-900 dark:text-white mb-4">Gestão de Ponta a Ponta</h3>
+<p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                    Controle financeiro, gestão de palestrantes e cronograma do evento em uma interface intuitiva. Nossa ferramenta de gestão permite que você tenha visão 360º de cada detalhe, evitando imprevistos e otimizando recursos.
+                </p>
+<div class="flex flex-wrap gap-4">
+<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-700 px-3 py-2 rounded-lg border border-slate-100 dark:border-slate-600">
+<span class="material-symbols-outlined text-primary">payments</span>
+<span class="text-xs font-bold uppercase tracking-wider">Financeiro</span>
+</div>
+<div class="flex items-center gap-2 bg-slate-50 dark:bg-slate-700 px-3 py-2 rounded-lg border border-slate-100 dark:border-slate-600">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+<span class="text-xs font-bold uppercase tracking-wider">Agenda</span>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<div class="bg-primary/5 rounded-2xl p-4">
+<img alt="Feature detail" class="rounded-xl shadow-lg w-full aspect-[4/3] object-cover" data-alt="Modern office setup with laptop showing business charts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0oDvxIw91ntFMhxh3xQbLVnLrX7zFofSkItTQrG_1Ju2rcRjkcb7vHdmF9N9o6rpO1oBLsyHAAeTVE3w8U2RWYQqhJnOlw1I68xeh_51AKrnUKX3BxayFalEkDrutOfpvwJIrgdMg9v1_k7sGKl5JVJh11Tl8GnVcekC5-ZjfneFfalxgbJtNDnJcJig-kkcL35ZPHkTRwSObwhE-3Do5Jiq3vqOemFNtDEme1BsTLs0jqbHmKmDbxC1M9-qOKNHMWxc9WZ24N2M"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-16 px-4 bg-slate-50 dark:bg-background-dark">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="text-slate-900 dark:text-white text-3xl font-black mb-4">Planos que crescem com você</h2>
+<p class="text-slate-600 dark:text-slate-400">Transparência total, sem taxas escondidas.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Plan 1 -->
+<div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-200 dark:border-slate-700 flex flex-col">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Pequeno</h3>
+<p class="text-slate-500 text-sm mb-6">Ideal para webinars e encontros locais.</p>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="text-3xl font-black text-slate-900 dark:text-white">R$ 499</span>
+<span class="text-slate-500">/evento</span>
+</div>
+<ul class="space-y-4 mb-8 flex-grow">
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check</span> Até 200 participantes
+                        </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check</span> Credenciamento App
+                        </li>
+<li class="flex items-center gap-2 text-sm text-slate-400 line-through">
+<span class="material-symbols-outlined text-lg">close</span> Analytics Avançado
+                        </li>
+</ul>
+<button class="w-full py-4 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary/5 transition-colors">Contratar</button>
+</div>
+<!-- Plan 2 (Popular) -->
+<div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border-2 border-primary ring-4 ring-primary/10 flex flex-col relative scale-105 z-10">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Mais Popular</div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Popular</h3>
+<p class="text-slate-500 text-sm mb-6">Para conferências e workshops corporativos.</p>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="text-3xl font-black text-slate-900 dark:text-white">R$ 1.299</span>
+<span class="text-slate-500">/evento</span>
+</div>
+<ul class="space-y-4 mb-8 flex-grow">
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check</span> Até 1.000 participantes
+                        </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check</span> Captura de Leads Ilimitada
+                        </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check</span> Suporte Prioritário
+                        </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check</span> Integração CRM
+                        </li>
+</ul>
+<button class="w-full py-4 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/30 hover:bg-primary/90 transition-colors">Começar Agora</button>
+</div>
+<!-- Plan 3 -->
+<div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-200 dark:border-slate-700 flex flex-col">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Grande</h3>
+<p class="text-slate-500 text-sm mb-6">Grandes exposições e feiras internacionais.</p>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="text-3xl font-black text-slate-900 dark:text-white">R$ 4.999</span>
+<span class="text-slate-500">/evento</span>
+</div>
+<ul class="space-y-4 mb-8 flex-grow">
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check</span> Participantes Ilimitados
+                        </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check</span> White Label Completo
+                        </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check</span> Gerente de Conta Dedicado
+                        </li>
+</ul>
+<button class="w-full py-4 border-2 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Falar com Consultor</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-16 px-4">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-2 mb-6 text-white">
+<div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+<span class="font-bold text-xl">B</span>
+</div>
+<h2 class="text-xl font-black tracking-tight uppercase">BizzExpo</h2>
+</div>
+<p class="text-sm leading-relaxed mb-6">Líder em tecnologia para eventos e feiras na América Latina. Inteligência para o seu negócio.</p>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Produto</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Funcionalidades</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Check-in Online</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Totens Autoatendimento</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Leads App</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Empresa</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Sobre Nós</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Carreiras</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Contato</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Suporte</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white transition-colors" href="#">Centro de Ajuda</a></li>
+<li><a class="hover:text-white transition-colors" href="#">API Docs</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Status</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Privacidade</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+<p>© 2024 BizzExpo Tecnologia Ltda. Todos os direitos reservados.</p>
+<div class="flex gap-6">
+<a class="hover:text-white" href="#">Termos de Uso</a>
+<a class="hover:text-white" href="#">Política de Cookies</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
