@@ -2,7 +2,7 @@
 
 Este documento lista funcionalidades implementadas, em andamento e planejadas.
 
-**Última atualização:** 2026-03-07
+**Última atualização:** 2026-03-16
 **Mantido por:** Equipe de Desenvolvimento
 
 ---
@@ -13,17 +13,17 @@ Este documento lista funcionalidades implementadas, em andamento e planejadas.
 
 | # | Épico | Status | Sprint |
 |---|-------|--------|--------|
-| 1 | Infraestrutura | Pendente | - |
-| 2 | Gestão de Eventos | Pendente | - |
-| 3 | Gestão de Expositores | Pendente | - |
-| 4 | Sistema de Inscrição | Pendente | - |
-| 5 | Dashboard Analítico | Pendente | - |
-| 6 | Landing Page Evento | Pendente | - |
+| 1 | Infraestrutura | Em Andamento | 04 (US-1.6) |
+| 2 | Gestão de Eventos | Concluído | 02-03 |
+| 3 | Gestão de Expositores | Concluído | 02-03 |
+| 4 | Sistema de Inscrição | Concluído | 03 |
+| 5 | Dashboard Analítico | Concluído | 03 |
+| 6 | Landing Page Evento | Em Andamento | 04 |
 | 7 | Pagamento | Pendente | - |
-| 8 | Check-in | Pendente | - |
+| 8 | Check-in | Concluído | 03-04 (validação) |
 | 9 | Gestão de Organizador | Pendente | - |
-| 10 | Gestão de Staff | Pendente | - |
-| 11 | Captura de Leads | Pendente | - |
+| 10 | Gestão de Staff | Concluído | 02 |
+| 11 | Captura de Leads | Concluído | 03 |
 
 ---
 
@@ -674,6 +674,35 @@ Este documento lista funcionalidades implementadas, em andamento e planejadas.
 - [ ] Gerar link de calendário
 - [ ] Integrar Google Maps
 - [ ] Testes
+
+---
+
+#### US-6.5: Cloudflare Workers para SEO
+**Como** sistema,
+**Quero** injetar meta tags dinâmicas via Cloudflare Workers,
+**Para** otimizar SEO e compartilhamento em redes sociais.
+
+**Documentação técnica:** [docs/analises/tecnicas/cloudflare-workers-seo.md](analises/tecnicas/cloudflare-workers-seo.md)
+
+**Critérios de aceite:**
+- [ ] Worker detecta crawlers por User-Agent
+- [ ] Meta tags dinâmicas injetadas (Open Graph, Twitter Cards, Schema.org)
+- [ ] Dados do evento buscados via API
+- [ ] Cache na edge (KV) funcionando
+- [ ] Fallback para SPA se API falhar
+- [ ] Deploy automatizado via CI/CD
+- [ ] Validação com Facebook Debugger e Twitter Card Validator
+
+**Tarefas:**
+- [ ] Setup projeto Wrangler
+- [ ] Implementar detecção de crawlers
+- [ ] Criar template de meta tags
+- [ ] Implementar fetch da API
+- [ ] Implementar injeção no HTML
+- [ ] Configurar cache KV
+- [ ] Criar testes unitários
+- [ ] Configurar CI/CD
+- [ ] Deploy e validação
 
 ---
 

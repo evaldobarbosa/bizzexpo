@@ -6,6 +6,28 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
 ---
 
+## [0.4.0] - 2026-03-16 (Em Andamento)
+
+### Adicionado
+
+#### Documentacao
+- **Sprint 04** - Planejamento da sprint com foco em:
+  - US-1.6: Estrutura Multi-tenant
+  - Epico 6: Landing Page do Evento (revisao e SEO)
+  - Epico 8: Check-in (validacao)
+- **US-6.5: Cloudflare Workers para SEO** - Nova user story adicionada ao backlog
+- **Analise Tecnica** - `docs/analises/tecnicas/cloudflare-workers-seo.md`
+  - Arquitetura de Workers para injecao de meta tags
+  - Diagramas de fluxo e sequencia
+  - Codigo de referencia
+  - Estrategia de cache e deploy
+
+### Alterado
+- BACKLOG.md atualizado com status dos epicos (varios marcados como Concluido)
+- MILESTONES.md atualizado com M1, M2, M3 e proximos milestones planejados
+
+---
+
 ## [0.3.0] - 2026-03-07
 
 ### Adicionado
