@@ -6,6 +6,57 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
 ---
 
+## [0.5.0] - 2026-03-19
+
+### Adicionado
+
+#### Backend (API)
+- **Épico 13 - Sistema Administrativo**
+  - Pacote `spatie/laravel-permission` para roles e permissões
+  - Pacote `owen-it/laravel-auditing` para auditoria
+  - Role "admin" com permissões específicas
+  - Action `MarcarEventoComoPago` para admin marcar pagamento manual
+  - Action `ListarEventosAdmin` para listar todos os eventos
+  - Action `EnviarNotificacao` para notificações genéricas
+  - Evento `EventoPago` com listeners:
+    - `AtualizarStatusEvento` - muda status para PAGO
+    - `NotificarOrganizador` - envia notificação database + email
+    - `RegistrarPagamento` - log de auditoria
+  - Model `Notificacao` com enums TipoNotificacao e NotificacaoStatus
+  - Jobs `EnviarEmailNotificacao` e `EnviarWebhookNotificacao`
+  - Middleware `EnsureUserIsAdmin`
+  - Controllers Admin: `Evento/Listar` e `Evento/MarcarPago`
+  - Rotas admin protegidas: GET /admin/eventos, PATCH /admin/eventos/{id}/pago
+  - Seeders: `RolesAndPermissionsSeeder`, `AdminUserSeeder`
+  - Mailable `NotificacaoGenerica` para emails transacionais
+  - Migration para tabela `notificacoes`
+  - Migration para campos admin em `pagamentos` (admin_id, observacao)
+
+- **Testes**
+  - `MarcarEventoComoPagoTest` - cenários de sucesso e erro
+  - `ListarEventosAdminTest` - listagem admin
+  - `EnviarNotificacaoTest` - jobs de notificação
+  - `EventoAuditoriaTest` - verificação de auditoria
+  - Factory `NotificacaoFactory`
+
+#### Frontend (Vue 3)
+- Computed `isAdmin` no store `auth`
+- Método `marcarComoPago` no store `eventos`
+- Modal de pagamento manual em `EventoDetailView`
+- Botão "Marcar como Pago" visível apenas para admin
+- Tipos atualizados com `roles` e `is_admin` em User
+
+#### Infraestrutura
+- Mailpit configurado no docker-compose.yml (portas 8025 e 1025)
+- Configuração de email para ambiente de desenvolvimento
+
+### Alterado
+- `EventoStatus.canTransitionTo()` - organizer não pode mais alterar rascunho → pago
+- `UserResource` - inclui roles e is_admin na resposta
+- `DatabaseSeeder` - chama seeders de roles e admin users
+
+---
+
 ## [0.4.0] - 2026-03-16 (Em Andamento)
 
 ### Adicionado

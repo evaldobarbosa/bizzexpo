@@ -2,7 +2,7 @@
 
 Este documento lista funcionalidades implementadas, em andamento e planejadas.
 
-**Última atualização:** 2026-03-16
+**Última atualização:** 2026-03-19 (Sprint 05)
 **Mantido por:** Equipe de Desenvolvimento
 
 ---
@@ -24,6 +24,8 @@ Este documento lista funcionalidades implementadas, em andamento e planejadas.
 | 9 | Gestão de Organizador | Pendente | - |
 | 10 | Gestão de Staff | Concluído | 02 |
 | 11 | Captura de Leads | Concluído | 03 |
+| 12 | Customização Visual | Pendente | - |
+| 13 | Sistema Administrativo | Concluído | 05 |
 
 ---
 
@@ -1039,6 +1041,170 @@ Este documento lista funcionalidades implementadas, em andamento e planejadas.
 
 ---
 
+## Épico 12: Customização Visual
+
+**Objetivo:** Permitir personalização visual de páginas públicas e perfis.
+
+### User Stories
+
+#### US-12.1: Customização da Página do Evento
+**Como** organizador,
+**Quero** personalizar a aparência da página pública do meu evento,
+**Para** criar uma identidade visual única.
+
+**Critérios de aceite:**
+- [ ] Upload de banner principal
+- [ ] Definição de cores/tema (primária, secundária, background)
+- [ ] Preview em tempo real
+- [ ] Responsivo em dispositivos móveis
+- [ ] Testes automatizados
+
+**Tarefas:**
+- [ ] Criar migration para customização de evento
+- [ ] Criar model/campos de customização
+- [ ] Criar endpoints de configuração
+- [ ] Criar componentes Vue de customização
+- [ ] Implementar upload de banner
+- [ ] Implementar seletor de cores
+- [ ] Criar preview
+
+---
+
+#### US-12.2: Customização do Perfil do Organizador
+**Como** organizador,
+**Quero** personalizar meu perfil público,
+**Para** fortalecer minha marca.
+
+**Critérios de aceite:**
+- [ ] Upload de logo
+- [ ] Upload de banner
+- [ ] Definição de cores/tema
+- [ ] Bio/descrição
+- [ ] Links de redes sociais
+- [ ] Testes automatizados
+
+**Tarefas:**
+- [ ] Criar migration para customização de organizador
+- [ ] Criar endpoints de configuração
+- [ ] Criar componentes Vue
+- [ ] Implementar uploads
+
+---
+
+#### US-12.3: Customização do Perfil do Expositor
+**Como** expositor,
+**Quero** personalizar minha página no evento,
+**Para** destacar minha empresa.
+
+**Critérios de aceite:**
+- [ ] Upload de logo
+- [ ] Upload de banner/galeria
+- [ ] Descrição detalhada
+- [ ] Vídeo institucional (embed YouTube/Vimeo)
+- [ ] Links de redes sociais
+- [ ] Catálogo de produtos (opcional)
+- [ ] Testes automatizados
+
+**Tarefas:**
+- [ ] Criar migration para customização de expositor
+- [ ] Criar endpoints de configuração
+- [ ] Criar componentes Vue
+- [ ] Implementar uploads e embeds
+
+---
+
+## Épico 13: Sistema Administrativo
+
+**Objetivo:** Permitir gestão administrativa da plataforma pelos usuários SIM/Code2.
+
+### User Stories
+
+#### US-13.1: Roles e Permissões ✅
+**Como** sistema,
+**Quero** ter um sistema de roles e permissões,
+**Para** controlar acesso às funcionalidades administrativas.
+
+**Critérios de aceite:**
+- [x] Pacote spatie/laravel-permission instalado
+- [x] Role "admin" criada
+- [x] Permissões configuradas (eventos.marcar.pago, eventos.listar.todos, etc.)
+- [x] Guard Sanctum configurado
+- [x] Seeder de roles e permissões
+- [x] Testes automatizados
+
+---
+
+#### US-13.2: Marcar Evento como Pago (Admin) ✅
+**Como** admin,
+**Quero** marcar eventos como pagos,
+**Para** liberar a publicação pelo organizador.
+
+**Critérios de aceite:**
+- [x] Endpoint PATCH /admin/eventos/{id}/pago
+- [x] Somente admin pode acessar
+- [x] Registro de pagamento manual criado
+- [x] Evento muda de rascunho para pago
+- [x] Evento EventoPago disparado
+- [x] Notificação enviada ao organizador (database + email)
+- [x] Auditoria registrada
+- [x] Testes automatizados
+
+---
+
+#### US-13.3: Listar Todos os Eventos (Admin) ✅
+**Como** admin,
+**Quero** visualizar todos os eventos da plataforma,
+**Para** ter visão geral do sistema.
+
+**Critérios de aceite:**
+- [x] Endpoint GET /admin/eventos
+- [x] Somente admin pode acessar
+- [x] Lista todos os eventos de todos os organizadores
+- [x] Testes automatizados
+
+---
+
+#### US-13.4: Auditoria de Eventos ✅
+**Como** admin,
+**Quero** visualizar histórico de alterações,
+**Para** rastrear mudanças nos eventos.
+
+**Critérios de aceite:**
+- [x] Pacote owen-it/laravel-auditing instalado
+- [x] Models User e Evento auditáveis
+- [x] Registro de alterações automático
+- [x] Testes automatizados
+
+---
+
+#### US-13.5: Notificações de Pagamento ✅
+**Como** organizador,
+**Quero** ser notificado quando meu evento for marcado como pago,
+**Para** saber que posso publicá-lo.
+
+**Critérios de aceite:**
+- [x] Notificação salva no banco (database)
+- [x] Email enviado via Mailpit (dev)
+- [x] Model Notificacao criado
+- [x] Jobs para envio assíncrono
+- [x] Testes automatizados
+
+---
+
+#### US-13.6: Interface Admin no Frontend ✅
+**Como** admin,
+**Quero** ter botão de "Marcar como Pago" na página do evento,
+**Para** realizar a operação de forma visual.
+
+**Critérios de aceite:**
+- [x] Botão visível apenas para admin
+- [x] Modal com campos: valor e observação
+- [x] Integração com endpoint /admin/eventos/{id}/pago
+- [x] Feedback de sucesso/erro
+- [x] Store eventos com método marcarComoPago
+
+---
+
 ## Fora do MVP
 
 Funcionalidades para versões futuras:
@@ -1064,4 +1230,4 @@ Funcionalidades para versões futuras:
 
 ---
 
-**Última revisão:** 2026-03-07
+**Última revisão:** 2026-03-19

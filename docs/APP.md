@@ -35,10 +35,21 @@ A plataforma transforma o credenciamento tradicional em uma ferramenta de inteli
 
 | Perfil | Cadastro | Autenticação | Escopo |
 |--------|----------|--------------|--------|
+| Admin | Por sistema | Email/senha | Plataforma |
 | Organizador | Self-service | Email/senha, OAuth2 | Multi-eventos |
 | Expositor | Por organizador | Email/senha, OAuth2 | Por evento |
 | Participante | Self-service | Email/senha, OAuth2 | Por evento |
 | Staff | Por organizador | Email/senha, OAuth2 | Por evento |
+
+### Admin
+
+Usuário administrativo da plataforma (SIM Soluções/Code2). Gerencia aspectos globais do sistema.
+
+**Capacidades:**
+- Visualizar todos os eventos da plataforma
+- Marcar eventos como pagos (rascunho → pago)
+- Visualizar auditoria de alterações
+- Gerenciar organizadores
 
 ### Organizador
 
@@ -305,6 +316,13 @@ Recebe convite por email → Cria conta → Acessa app de check-in
 - **Banco de dados:** PostgreSQL
 - **Pagamentos:** Pagar.me
 
+### Domínios
+
+| Ambiente | Domínio |
+|----------|---------|
+| Produção | `duevento.com.br` |
+| Desenvolvimento | `duevento.code2.dev` |
+
 ### Características
 - Plataforma Web com painel administrativo
 - PWA para check-in e captura de leads
@@ -320,7 +338,7 @@ Funcionalidades planejadas para versões futuras:
 
 1. **Impressão de credenciais** - Integração com impressoras térmicas
 2. **Funcionamento offline** - Service workers, sincronização
-3. **Backoffice admin** - Gestão da plataforma (SIM Soluções/Code2)
+3. **Backoffice admin avançado** - Dashboards, relatórios globais, gestão de usuários (base implementada: roles, permissões, marcar pago)
 4. **Campos personalizáveis** - Formulários dinâmicos de inscrição
 5. **App nativo do evento**
 6. **Networking inteligente**
