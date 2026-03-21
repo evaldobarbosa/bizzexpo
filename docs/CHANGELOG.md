@@ -6,6 +6,29 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
 ---
 
+## [0.6.0] - 2026-03-19 (Em Andamento)
+
+### Adicionado
+
+#### Documentacao
+- **Sprint 06** - Planejamento da sprint com foco em:
+  - Integracao Pagar.me (cartao credito, debito, PIX)
+  - Catalogo global de produtos e servicos
+  - Sistema de faturas com itens
+  - Preparacao para NF-e futura
+- **Analise Feature** - `docs/analises/features/integracao-pagarme-catalogo.md`
+  - Modelo de dados completo
+  - Criterios de aceitacao em Gherkin
+  - Endpoints da API
+  - Regras de negocio
+  - Fluxos de pagamento
+
+### Alterado
+- BACKLOG.md atualizado com Epico 7 detalhado (8 user stories)
+- Epico 7 mudou de "Pendente" para "Em Andamento"
+
+---
+
 ## [0.5.1] - 2026-03-19
 
 ### Adicionado

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>duevento - Autoatendimento Check-in</title>
+<!-- Tailwind CSS v3 CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#006b44',
+            darkBg: '#003d27',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          borderRadius: {
+            'custom': '8px', // ROUND_EIGHT
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-animations">
+    /* Animation for the QR scanner laser effect */
+    @keyframes scan {
+      0%, 100% { top: 5%; }
+      50% { top: 95%; }
+    }
+    .scanner-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #4ade80;
+      box-shadow: 0 0 15px #4ade80;
+      animation: scan 3s infinite ease-in-out;
+      z-index: 20;
+    }
+    .viewport-border {
+      box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-darkBg font-sans text-white min-h-screen flex flex-col overflow-hidden">
+<!-- BEGIN: Header Section -->
+<header class="pt-12 pb-8 text-center" data-purpose="main-header">
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-2">
+      Feira Tech 2026
+    </h1>
+<h2 class="text-xl md:text-2xl font-medium text-green-100/80">
+      Autoatendimento - Check-in
+    </h2>
+</header>
+<!-- END: Header Section -->
+<!-- BEGIN: Main Interaction Area -->
+<main class="flex-grow flex flex-col items-center justify-center px-6" data-purpose="scanner-container">
+<!-- Instruction Label -->
+<div class="mb-8 text-center" data-purpose="instruction-text">
+<p class="text-2xl md:text-3xl font-semibold">
+        Escaneie seu QR Code
+      </p>
+<p class="text-green-100/60 mt-2">
+        Posicione o código no centro da marcação abaixo
+      </p>
+</div>
+<!-- Scanner Viewport -->
+<div class="relative w-full max-w-md aspect-square bg-black overflow-hidden rounded-custom border-4 border-primary/30" data-purpose="camera-viewport">
+<!-- Mock Camera Feed (Placeholder) -->
+<div class="absolute inset-0 bg-neutral-900 flex items-center justify-center">
+<!-- In a real app, a <video> element would be here -->
+<svg class="w-24 h-24 text-white/10" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+</svg>
+</div>
+<!-- Scanner Overlay -->
+<div class="absolute inset-0 z-10 flex items-center justify-center">
+<!-- The visual "hole" for the scanner -->
+<div class="relative w-3/4 h-3/4 border-2 border-white/50 rounded-lg viewport-border">
+<!-- Scanner laser line -->
+<div class="scanner-line"></div>
+<!-- Corner Accents -->
+<div class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-green-400 -mt-1 -ml-1"></div>
+<div class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-green-400 -mt-1 -mr-1"></div>
+<div class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-green-400 -mb-1 -ml-1"></div>
+<div class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-green-400 -mb-1 -mr-1"></div>
+</div>
+</div>
+</div>
+<!-- Alternative Action -->
+<div class="mt-10" data-purpose="alternative-input">
+<button class="px-8 py-4 bg-primary hover:bg-opacity-90 transition-all text-white font-bold text-lg rounded-custom shadow-lg">
+        Digitar código manualmente
+      </button>
+</div>
+</main>
+<!-- END: Main Interaction Area -->
+<!-- BEGIN: Footer Section -->
+<footer class="py-8 text-center" data-purpose="branding-footer">
+<p class="text-sm font-medium tracking-widest text-green-100/40 uppercase">
+      Powered by <span class="text-green-100/60 font-bold">duevento</span>
+</p>
+</footer>
+<!-- END: Footer Section -->
+<script data-purpose="ui-logic">
+    // This script could handle camera initialization or simulated feedback
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('duevento Check-in Kiosk Initialized');
+      
+      // Example: Placeholder for vibration/sound feedback on scan detection
+      function onScanSuccess(decodedText) {
+        alert('Check-in realizado para: ' + decodedText);
+      }
+    });
+  </script>
+</body></html>

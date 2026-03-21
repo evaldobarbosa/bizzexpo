@@ -57,6 +57,7 @@
 - **Modelo de Dados:** [docs/analises/modelo-dados.md](docs/analises/modelo-dados.md)
 - **Relacionamentos:** [docs/RELACIONAMENTOS.md](docs/RELACIONAMENTOS.md)
 - **Testes automatizados:** [docs/TESTES-AUTOMATIZADOS.md](docs/TESTES-AUTOMATIZADOS.md)
+- **Health check:** [docs/TESTES-AUTOMATIZADOS.md](docs/HEALTHCHECK.md)
 
 ## Estrutura de Documentação
 

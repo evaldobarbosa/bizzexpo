@@ -14,6 +14,8 @@ Marcos do projeto que agrupam funcionalidades relacionadas.
 | M1 | Gestao de Eventos | Concluido | Sprint 02 | v0.2.0 |
 | M2 | Fluxo Completo MVP | Concluido | Sprint 03 | v0.3.0 |
 | M3 | SEO e Multi-tenancy | Em Andamento | Sprint 04 | v0.4.0 |
+| M3.5 | Sistema Administrativo | Concluido | Sprint 05 | v0.5.0 |
+| M4 | Pagamento e Catalogo | Em Andamento | Sprint 06 | v0.6.0 |
 
 ---
 
@@ -107,13 +109,67 @@ Marcos do projeto que agrupam funcionalidades relacionadas.
 
 ---
 
+## M3.5 - Sistema Administrativo
+
+**Status:** Concluido
+**Versao:** v0.5.0
+**Tag Git:** `docs-v0.5.0`
+
+### Escopo
+- Interface administrativa para SIM/Code2
+- Impersonation de organizadores
+- Metricas financeiras
+
+### Funcionalidades
+- [x] US-13.1: Roles e Permissoes (spatie/laravel-permission)
+- [x] US-13.2: Marcar Evento como Pago (Admin)
+- [x] US-13.3: Listar Todos os Eventos (Admin)
+- [x] US-13.4: Auditoria de Eventos (owen-it/laravel-auditing)
+- [x] US-13.5: Notificacoes de Pagamento
+- [x] US-13.6: Interface Admin no Frontend
+- [x] Sistema de Impersonation completo
+- [x] Pagina Financeiro com metricas
+
+### Artefatos
+- Sprint: `docs/sprints/sprint-05.md` (nao documentada)
+
+---
+
+## M4 - Pagamento e Catalogo
+
+**Status:** Em Andamento
+**Versao:** v0.6.0 (planejada)
+**Tag Git:** `docs-v0.6.0` (a criar)
+
+### Escopo
+- Integracao com Pagar.me (cartao, debito, PIX)
+- Catalogo global de produtos e servicos
+- Sistema de faturas com multiplos itens
+- Parcelamento com juros
+
+### Funcionalidades
+- [ ] US-7.1: Gestao de Catalogo (Admin)
+- [ ] US-7.2: Precos por Evento
+- [ ] US-7.3: Sistema de Faturas
+- [ ] US-7.4: Pagamento com Cartao
+- [ ] US-7.5: Pagamento com PIX
+- [ ] US-7.6: Webhook Pagar.me
+- [ ] US-7.7: Parcelamento
+- [ ] US-7.8: Visualizar Minhas Faturas
+
+### Artefatos
+- Sprint: `docs/sprints/sprint-06.md`
+- Analise Feature: `docs/analises/features/integracao-pagarme-catalogo.md`
+
+---
+
 ## Proximos Milestones (Planejados)
 
 | ID | Nome | Escopo Principal |
 |----|------|------------------|
-| M4 | Pagamento | Integracao Pagar.me |
 | M5 | Gestao Organizador | Perfil, senha, configuracoes |
 | M6 | OAuth2 | Login com Google/LinkedIn |
+| M7 | Customizacao Visual | Temas e personalizacao |
 
 ---
 
@@ -135,4 +191,4 @@ Marcos do projeto que agrupam funcionalidades relacionadas.
 
 ---
 
-**Ultima atualizacao:** 2026-03-16
+**Ultima atualizacao:** 2026-03-19

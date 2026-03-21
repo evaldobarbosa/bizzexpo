@@ -2,7 +2,7 @@
 
 Este documento lista funcionalidades implementadas, em andamento e planejadas.
 
-**Última atualização:** 2026-03-19 (Sprint 05)
+**Última atualização:** 2026-03-19 (Sprint 06)
 **Mantido por:** Equipe de Desenvolvimento
 
 ---
@@ -19,7 +19,7 @@ Este documento lista funcionalidades implementadas, em andamento e planejadas.
 | 4 | Sistema de Inscrição | Concluído | 03 |
 | 5 | Dashboard Analítico | Concluído | 03 |
 | 6 | Landing Page Evento | Em Andamento | 04 |
-| 7 | Pagamento | Pendente | - |
+| 7 | Pagamento | Em Andamento | 06 |
 | 8 | Check-in | Concluído | 03-04 (validação) |
 | 9 | Gestão de Organizador | Pendente | - |
 | 10 | Gestão de Staff | Concluído | 02 |
@@ -710,64 +710,178 @@ Este documento lista funcionalidades implementadas, em andamento e planejadas.
 
 ## Épico 7: Pagamento
 
-**Objetivo:** Integrar Pagar.me para cobrança dos organizadores.
+**Objetivo:** Integrar Pagar.me para cobranca de organizadores e expositores, com catalogo de produtos e sistema de faturas.
+
+**Documentacao:** [Sprint 06](sprints/sprint-06.md) | [Analise Feature](analises/features/integracao-pagarme-catalogo.md)
 
 ### User Stories
 
-#### US-7.1: Selecionar Plano/Capacidade
-**Como** organizador,
-**Quero** selecionar a capacidade do meu evento,
-**Para** saber quanto vou pagar.
+#### US-7.1: Gestao de Catalogo (Admin)
+**Como** admin,
+**Quero** gerenciar um catalogo global de produtos e servicos,
+**Para** oferecer itens padronizados aos clientes.
 
 **Critérios de aceite:**
-- [ ] Opções de capacidade exibidas com preços
-- [ ] Cálculo automático do valor
+- [ ] CRUD de categorias de produto
+- [ ] CRUD de produtos com tipo (estande, marketing, equipamento, servico)
+- [ ] Preco base definido por produto
+- [ ] Produtos podem ser ativados/desativados
 - [ ] Testes automatizados
 
 **Tarefas:**
-- [ ] Criar tabela de preços
-- [ ] Criar componente de seleção
-- [ ] Criar endpoint de cálculo
-
----
-
-#### US-7.2: Processar Pagamento
-**Como** organizador,
-**Quero** pagar pelo evento,
-**Para** poder publicá-lo.
-
-**Critérios de aceite:**
-- [ ] Integração com Pagar.me
-- [ ] Pagamento via cartão crédito/débito
-- [ ] Pagamento via PIX
-- [ ] Confirmação de pagamento
-- [ ] Status do evento atualizado para "pago"
-- [ ] Testes automatizados
-
-**Tarefas:**
-- [ ] Criar conta Pagar.me
-- [ ] Instalar SDK
+- [ ] Criar migrations (categorias_produto, produtos)
+- [ ] Criar models (CategoriaProduto, Produto)
+- [ ] Criar Actions de CRUD
+- [ ] Criar Controllers admin
 - [ ] Criar testes
-- [ ] Criar Action de pagamento
-- [ ] Implementar webhook de confirmação
-- [ ] Criar endpoints
 
 ---
 
-#### US-7.3: Comprovante de Pagamento
-**Como** organizador,
-**Quero** receber comprovante do pagamento,
-**Para** ter registro fiscal.
+#### US-7.2: Precos por Evento
+**Como** admin,
+**Quero** definir precos especificos de produtos por evento,
+**Para** flexibilizar a precificacao conforme o contexto.
 
 **Critérios de aceite:**
-- [ ] Email com comprovante enviado
-- [ ] PDF disponível no painel
+- [ ] Preco especifico sobrescreve preco base
+- [ ] Vinculo produto-evento unico
 - [ ] Testes automatizados
 
 **Tarefas:**
-- [ ] Criar template de comprovante
-- [ ] Implementar geração de PDF
-- [ ] Implementar envio de email
+- [ ] Criar migration produtos_evento
+- [ ] Criar model ProdutoEvento
+- [ ] Criar Action DefinirPrecoEvento
+- [ ] Criar endpoint
+- [ ] Criar testes
+
+---
+
+#### US-7.3: Sistema de Faturas
+**Como** sistema/admin,
+**Quero** criar faturas com multiplos itens para clientes,
+**Para** registrar as cobrancas de forma organizada.
+
+**Critérios de aceite:**
+- [ ] Fatura com numero sequencial (ANO-SEQUENCIAL)
+- [ ] Cliente polimorfico (Organizador ou Expositor)
+- [ ] Status: rascunho, pendente, paga, cancelada, vencida
+- [ ] Adicionar/remover itens em rascunho
+- [ ] Aplicar desconto
+- [ ] Finalizar fatura (rascunho -> pendente)
+- [ ] Cancelar fatura
+- [ ] Campos fiscais preparados para NF-e futura
+- [ ] Testes automatizados
+
+**Tarefas:**
+- [ ] Criar migrations (faturas, itens_fatura)
+- [ ] Criar models (Fatura, ItemFatura)
+- [ ] Criar Actions de gestao de faturas
+- [ ] Criar Controllers admin e cliente
+- [ ] Criar testes
+
+---
+
+#### US-7.4: Pagamento com Cartao
+**Como** cliente (organizador/expositor),
+**Quero** pagar minhas faturas com cartao de credito ou debito,
+**Para** ter flexibilidade no pagamento.
+
+**Critérios de aceite:**
+- [ ] Integracao com Pagar.me
+- [ ] Cartao de credito com parcelamento ate 12x
+- [ ] Juros repassados ao cliente
+- [ ] Cartao de debito a vista
+- [ ] Tokenizacao de dados do cartao (nunca salvar)
+- [ ] Fatura marcada como paga apos confirmacao
+- [ ] Testes automatizados (mocked)
+
+**Tarefas:**
+- [ ] Criar config/pagarme.php
+- [ ] Criar Service de integracao Pagar.me
+- [ ] Criar Action ProcessarCartao
+- [ ] Criar endpoint
+- [ ] Criar testes
+
+---
+
+#### US-7.5: Pagamento com PIX
+**Como** cliente (organizador/expositor),
+**Quero** pagar minhas faturas com PIX,
+**Para** ter opcao de pagamento instantaneo.
+
+**Critérios de aceite:**
+- [ ] Geracao de QR Code via Pagar.me
+- [ ] Codigo copia-e-cola disponivel
+- [ ] Expiracao de 30 minutos
+- [ ] Webhook confirma pagamento
+- [ ] Fatura marcada como paga apos confirmacao
+- [ ] Testes automatizados (mocked)
+
+**Tarefas:**
+- [ ] Criar Action GerarPix
+- [ ] Criar endpoint
+- [ ] Criar componente PixQrCode
+- [ ] Criar testes
+
+---
+
+#### US-7.6: Webhook Pagar.me
+**Como** sistema,
+**Quero** receber notificacoes de pagamento do Pagar.me,
+**Para** atualizar status das faturas automaticamente.
+
+**Critérios de aceite:**
+- [ ] Endpoint publico /api/webhook/pagarme
+- [ ] Validacao de assinatura do Pagar.me
+- [ ] Tratar eventos: charge.paid, charge.refunded, charge.payment_failed
+- [ ] Atualizar status da fatura
+- [ ] Notificar cliente por email
+- [ ] Testes automatizados
+
+**Tarefas:**
+- [ ] Criar Action ProcessarWebhook
+- [ ] Criar Controller publico
+- [ ] Criar Events e Listeners
+- [ ] Criar testes
+
+---
+
+#### US-7.7: Parcelamento
+**Como** cliente,
+**Quero** parcelar meu pagamento em ate 12x no cartao,
+**Para** diluir o valor da compra.
+
+**Critérios de aceite:**
+- [ ] Calcular valor de cada parcela com juros
+- [ ] Exibir simulacao antes de confirmar
+- [ ] Taxa de juros configuravel
+- [ ] Registro de parcelas e juros no pagamento
+- [ ] Testes automatizados
+
+**Tarefas:**
+- [ ] Criar Action CalcularParcelas
+- [ ] Criar componente ParcelamentoSelector
+- [ ] Criar testes
+
+---
+
+#### US-7.8: Visualizar Minhas Faturas
+**Como** cliente (organizador/expositor),
+**Quero** visualizar minhas faturas,
+**Para** acompanhar pagamentos.
+
+**Critérios de aceite:**
+- [ ] Lista de faturas do cliente autenticado
+- [ ] Filtro por status
+- [ ] Detalhes da fatura com itens
+- [ ] Link para pagamento de fatura pendente
+- [ ] Testes automatizados
+
+**Tarefas:**
+- [ ] Criar Action Listar (cliente)
+- [ ] Criar Controllers cliente
+- [ ] Criar Views Vue
+- [ ] Criar testes
 
 ---
 

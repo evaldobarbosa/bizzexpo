@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Feira Tech 2026 - duevento</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#006b44',
+            secondary: '#f3f4f6',
+            accent: '#ef4444',
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          borderRadius: {
+            'custom': '8px',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="global-styles">
+    body {
+      background-color: #f9fafb;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .btn-roundness {
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-900">
+<!-- BEGIN: MainHeader -->
+<header class="bg-white border-b border-slate-200 sticky top-0 z-50" data-purpose="header-section">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<h1 class="text-xl font-bold text-slate-900">Feira Tech 2026</h1>
+<!-- Status Badge -->
+<span class="inline-flex items-center rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+          Publicado
+        </span>
+</div>
+<div class="flex items-center gap-3">
+<button class="text-slate-500 hover:text-slate-700 p-2" title="Configurações">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" data-purpose="main-content">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- BEGIN: EventDetails -->
+<section class="lg:col-span-2 space-y-6">
+<!-- Summary Card -->
+<div class="bg-white p-6 rounded-custom shadow-sm border border-slate-200" data-purpose="event-summary">
+<h2 class="text-lg font-semibold mb-4 text-slate-800">Detalhes do Evento</h2>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="mt-1 p-2 bg-slate-50 rounded-md">
+<svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-500 uppercase tracking-wider">Data e Hora</p>
+<p class="text-slate-900 font-semibold">15 de Junho de 2026 às 09:00</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="mt-1 p-2 bg-slate-50 rounded-md">
+<svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="text-sm font-medium text-slate-500 uppercase tracking-wider">Localização</p>
+<p class="text-slate-900 font-semibold">Centro de Convenções Tech Park - São Paulo, SP</p>
+</div>
+</div>
+<div class="pt-4 border-t border-slate-100">
+<p class="text-sm font-medium text-slate-500 uppercase tracking-wider mb-2">Descrição</p>
+<p class="text-slate-600 leading-relaxed">
+                A Feira Tech 2026 é o maior encontro de tecnologia e inovação da América Latina. O evento reunirá líderes da indústria, desenvolvedores e entusiastas para discutir o futuro da IA, Web3 e sustentabilidade tecnológica. Prepare-se para workshops práticos, palestras inspiradoras e networking de alto nível.
+              </p>
+</div>
+</div>
+</div>
+<!-- Tab Navigation Buttons -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3" data-purpose="quick-access-tabs">
+<button class="flex flex-col items-center justify-center p-4 bg-white border border-slate-200 rounded-custom hover:border-primary hover:text-primary transition-all group shadow-sm">
+<svg class="w-6 h-6 mb-2 text-slate-400 group-hover:text-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-sm font-semibold">Expositores</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-white border border-slate-200 rounded-custom hover:border-primary hover:text-primary transition-all group shadow-sm">
+<svg class="w-6 h-6 mb-2 text-slate-400 group-hover:text-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 7h.01M7 11h.01M7 15h.01M13 7h.01M13 11h.01M13 15h.01M17 7h.01M17 11h.01M17 15h.01" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-sm font-semibold">Categorias</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-white border border-slate-200 rounded-custom hover:border-primary hover:text-primary transition-all group shadow-sm">
+<svg class="w-6 h-6 mb-2 text-slate-400 group-hover:text-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-sm font-semibold">Staff</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-white border border-slate-200 rounded-custom hover:border-primary hover:text-primary transition-all group shadow-sm">
+<svg class="w-6 h-6 mb-2 text-slate-400 group-hover:text-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-sm font-semibold">Inscrições</span>
+</button>
+</div>
+</section>
+<!-- END: EventDetails -->
+<!-- BEGIN: ActionSidebar -->
+<aside class="space-y-6">
+<!-- Promotion Link Section -->
+<div class="bg-primary/5 p-6 rounded-custom border border-primary/10" data-purpose="promotion-section">
+<h3 class="text-sm font-bold text-primary uppercase tracking-wider mb-3">Link de Promoção</h3>
+<div class="flex gap-2">
+<input class="flex-1 bg-white border border-slate-200 rounded-custom px-3 py-2 text-sm focus:ring-primary focus:border-primary" readonly="" type="text" value="duevento.com/feira-tech-2026"/>
+<button class="bg-primary text-white p-2 rounded-custom hover:bg-opacity-90 transition-colors" id="copyBtn" title="Copiar Link">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<p class="text-xs text-slate-500 mt-2">Compartilhe este link para atrair mais participantes.</p>
+</div>
+<!-- Management Actions -->
+<div class="bg-white p-6 rounded-custom shadow-sm border border-slate-200 space-y-3" data-purpose="action-buttons">
+<h3 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-2">Ações Rápidas</h3>
+<button class="w-full flex items-center justify-between px-4 py-3 bg-slate-50 border border-slate-200 rounded-custom hover:bg-slate-100 transition-colors font-medium">
+<span class="flex items-center gap-3">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Check-in Staff
+            </span>
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button class="w-full flex items-center justify-between px-4 py-3 bg-slate-50 border border-slate-200 rounded-custom hover:bg-slate-100 transition-colors font-medium">
+<span class="flex items-center gap-3">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Inscrição Walk-in
+            </span>
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button class="w-full flex items-center justify-between px-4 py-3 bg-slate-50 border border-slate-200 rounded-custom hover:bg-slate-100 transition-colors font-medium">
+<span class="flex items-center gap-3">
+<svg class="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.75 17L9 21h6l-.75-4M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Configurar Totem
+            </span>
+<svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<div class="pt-4 mt-2">
+<button class="w-full py-3 bg-accent text-white font-bold rounded-custom hover:bg-red-700 transition-colors shadow-sm active:scale-[0.98]">
+              Encerrar Evento
+            </button>
+</div>
+</div>
+</aside>
+<!-- END: ActionSidebar -->
+</div>
+</main>
+<script data-purpose="event-handlers">
+    // Simple feedback for the copy button
+    document.getElementById('copyBtn').addEventListener('click', function() {
+      const btn = this;
+      const originalIcon = btn.innerHTML;
+      
+      // Visual feedback
+      btn.classList.remove('bg-primary');
+      btn.classList.add('bg-green-600');
+      btn.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      `;
+
+      setTimeout(() => {
+        btn.classList.remove('bg-green-600');
+        btn.classList.add('bg-primary');
+        btn.innerHTML = originalIcon;
+      }, 2000);
+    });
+  </script>
+</body></html>
