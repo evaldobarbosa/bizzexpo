@@ -10,6 +10,14 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
 ### Adicionado
 
+#### Backend (API)
+- **MarcarEventoComoPago refatorada**
+  - Cria fatura automaticamente quando evento nao possui fatura
+  - Valida valor conforme plano (Essencial R$ 299 / Profissional R$ 899)
+  - Plano Enterprise aceita qualquer valor positivo (sob consulta)
+  - Gera item da fatura com descricao apropriada por tipo de plano
+  - 8 novos testes cobrindo cenarios de criacao automatica e validacao
+
 #### Documentacao
 - **Sprint 06** - Planejamento da sprint com foco em:
   - Integracao Pagar.me (cartao credito, debito, PIX)
