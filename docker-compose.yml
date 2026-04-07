@@ -141,10 +141,13 @@ services:
       - "1025:1025"  # SMTP
     networks:
       - bizzexpo-network
+      - proxymng
 
 networks:
   bizzexpo-network:
     driver: bridge
+  proxymng:
+    external: true
 
 volumes:
   postgres_data:
