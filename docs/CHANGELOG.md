@@ -6,6 +6,63 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/).
 
 ---
 
+## [0.7.0] - 2026-04-08
+
+### Adicionado
+
+#### Backend (API)
+- **Refatoracao Pessoa/Expositor/Patrocinador/EspacoComercial**
+  - Nova entidade `Pessoa` (PF/PJ) centralizando dados cadastrais
+  - Nova entidade `Contato` para multiplos emails, telefones, WhatsApp
+  - Nova entidade `EspacoComercial` unificando stands e espacos de ativacao
+  - Nova entidade `Patrocinador` com vinculo a Pessoa e CotaPatrocinio
+
+- **Enums**
+  - `TipoPessoa` (PF, PJ)
+  - `TipoContato` (EMAIL, TELEFONE, CELULAR, WHATSAPP)
+  - `TipoEspaco` (STAND, ATIVACAO, OUTRO)
+
+- **Events e Listeners**
+  - `PessoaCriada` + `CriarContatoPrincipal` (cria email automatico)
+  - `ExpositorCadastrado` + `GerarFaturaExpositor`, `EnviarEmailExpositor`
+  - `PatrocinadorCadastrado` + `GerarFaturaPatrocinador`, `EnviarEmailPatrocinador`
+
+- **Actions**
+  - `Pessoa/Criar` - Cria pessoa com documento
+  - `Pessoa/BuscarPorDocumento` - Busca no escopo do organizador
+  - `EspacoComercial/Criar`, `Listar`, `Atualizar`, `Excluir`
+  - `Patrocinador/Cadastrar`, `Listar`
+
+- **Migrations**
+  - 12 migrations para criacao de tabelas, migracao de dados e limpeza
+  - Migracao automatica de dados existentes (organizadores, expositores)
+  - Preparacao para remocao de colunas legadas (comentadas)
+
+- **Testes**
+  - `CriarPessoaTest`, `BuscarPorDocumentoTest`, `ContatoTest`
+  - `CriarEspacoComercialTest`, `ListarEspacosComerciaisTest`, `AtualizarEspacoComercialTest`, `ExcluirEspacoComercialTest`
+  - `CriarExpositorRefatoradoTest`
+  - `CadastrarPatrocinadorTest`
+
+- **Factories**
+  - `PessoaFactory`, `ContatoFactory`, `EspacoComercialFactory`, `PatrocinadorFactory`
+
+### Alterado
+- **Model User** - Adicionado `hasOne Pessoa`
+- **Model Documento** - Adicionado `hasOne Pessoa`, atualizado `estaEmUso()`
+- **Model Evento** - Adicionado `hasMany espacosComerciais`, `hasMany patrocinadores`
+- **Model Expositor** - Refatorado com `belongsTo Pessoa`, `belongsTo EspacoComercial`, accessors de compatibilidade
+- **Model Organizador** - Refatorado com `belongsTo Pessoa`, accessors de compatibilidade
+- **Model CotaPatrocinio** - Adicionado `hasMany Patrocinador`, metodos `atingiuLimite()`, accessor `vagas_disponiveis`
+- **Action CriarExpositor** - Refatorada para usar Pessoa + EspacoComercial, dispara ExpositorCadastrado
+- **EventServiceProvider** - Registrados novos eventos (PessoaCriada, ExpositorCadastrado, PatrocinadorCadastrado)
+
+### Documentacao
+- Atualizado modelo de dados com novas entidades
+- Atualizado backlog com features de gestao do organizador
+
+---
+
 ## [0.6.1] - 2026-03-25
 
 ### Adicionado

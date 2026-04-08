@@ -2,7 +2,7 @@
 
 Este documento lista funcionalidades implementadas, em andamento e planejadas.
 
-**Última atualização:** 2026-03-22 (Sprint 07)
+**Ultima atualizacao:** 2026-04-08 (Sprint 07 - Refatoracao Pessoa/Expositor/Patrocinador)
 **Mantido por:** Equipe de Desenvolvimento
 
 ---
@@ -21,7 +21,7 @@ Este documento lista funcionalidades implementadas, em andamento e planejadas.
 | 6 | Landing Page Evento | Em Andamento | 04 |
 | 7 | Pagamento | Concluido | 06 |
 | 8 | Check-in | Concluído | 03-04 (validação) |
-| 9 | Gestão de Organizador | Em Andamento | 07 |
+| 9 | Gestao de Organizador | Concluido | 07 |
 | 10 | Gestão de Staff | Concluído | 02 |
 | 11 | Captura de Leads | Concluído | 03 |
 | 12 | Customização Visual | Pendente | - |
@@ -971,25 +971,25 @@ Este documento lista funcionalidades implementadas, em andamento e planejadas.
 
 ---
 
-## Épico 9: Gestão de Organizador
+## Epico 9: Gestao de Organizador
 
-**Objetivo:** Permitir que organizador gerencie seu perfil.
+**Objetivo:** Permitir que organizador gerencie seu perfil, expositores, patrocinadores e espacos comerciais.
 
 ### User Stories
 
 #### US-9.1: Editar Perfil do Organizador
 **Como** organizador,
 **Quero** editar meus dados cadastrais,
-**Para** manter informações atualizadas.
+**Para** manter informacoes atualizadas.
 
-**Critérios de aceite:**
+**Criterios de aceite:**
 - [ ] Editar todos os campos do cadastro
-- [ ] Validação de CNPJ
+- [ ] Validacao de CNPJ
 - [ ] Testes automatizados
 
 **Tarefas:**
 - [ ] Criar testes
-- [ ] Criar Action de edição
+- [ ] Criar Action de edicao
 - [ ] Criar endpoint
 
 ---
@@ -999,15 +999,143 @@ Este documento lista funcionalidades implementadas, em andamento e planejadas.
 **Quero** alterar minha senha,
 **Para** manter minha conta segura.
 
-**Critérios de aceite:**
+**Criterios de aceite:**
 - [ ] Exigir senha atual
-- [ ] Validar nova senha (força)
+- [ ] Validar nova senha (forca)
 - [ ] Testes automatizados
 
 **Tarefas:**
 - [ ] Criar testes
 - [ ] Criar Action
 - [ ] Criar endpoint
+
+---
+
+#### US-9.3: Gestao de Pessoas (PF/PJ)
+**Como** organizador,
+**Quero** cadastrar e gerenciar pessoas (expositores, patrocinadores),
+**Para** centralizar dados cadastrais.
+
+**Criterios de aceite:**
+- [x] Criar Pessoa PF com CPF
+- [x] Criar Pessoa PJ com CNPJ
+- [x] Buscar Pessoa por documento (escopo do organizador)
+- [x] Contato EMAIL criado automaticamente via evento PessoaCriada
+- [x] Multiplos contatos por pessoa (email, telefone, celular, WhatsApp)
+- [x] Metodos obterEmailPrincipal(), obterTelefonePrincipal(), obterWhatsapp()
+- [x] Testes automatizados
+
+**Arquivos criados:**
+- `app/Enums/TipoPessoa.php`
+- `app/Enums/TipoContato.php`
+- `app/Models/Pessoa.php`
+- `app/Models/Contato.php`
+- `app/Events/PessoaCriada.php`
+- `app/Listeners/Pessoa/CriarContatoPrincipal.php`
+- `app/Actions/Pessoa/Criar.php`
+- `app/Actions/Pessoa/BuscarPorDocumento.php`
+- `database/factories/PessoaFactory.php`
+- `database/factories/ContatoFactory.php`
+- `tests/Feature/Actions/Pessoa/CriarPessoaTest.php`
+- `tests/Feature/Actions/Pessoa/BuscarPorDocumentoTest.php`
+- `tests/Feature/Models/ContatoTest.php`
+
+---
+
+#### US-9.4: Gestao de Espacos Comerciais
+**Como** organizador,
+**Quero** gerenciar espacos comerciais (stands, ativacoes) dos meus eventos,
+**Para** oferecer aos expositores.
+
+**Criterios de aceite:**
+- [x] CRUD de espacos comerciais por evento
+- [x] Tipos: stand, ativacao, outro
+- [x] Campos: nome, descricao, localizacao, dimensoes, preco
+- [x] Validar espaco disponivel antes de vincular expositor
+- [x] Migracao de dados: stands e espacos_ativacao -> espacos_comerciais
+- [x] Testes automatizados
+
+**Arquivos criados:**
+- `app/Enums/TipoEspaco.php`
+- `app/Models/EspacoComercial.php`
+- `app/Actions/EspacoComercial/Criar.php`
+- `app/Actions/EspacoComercial/Listar.php`
+- `app/Actions/EspacoComercial/Atualizar.php`
+- `app/Actions/EspacoComercial/Excluir.php`
+- `database/factories/EspacoComercialFactory.php`
+- `tests/Feature/Actions/EspacoComercial/CriarEspacoComercialTest.php`
+- `tests/Feature/Actions/EspacoComercial/ListarEspacosComerciaisTest.php`
+- `tests/Feature/Actions/EspacoComercial/AtualizarEspacoComercialTest.php`
+- `tests/Feature/Actions/EspacoComercial/ExcluirEspacoComercialTest.php`
+
+---
+
+#### US-9.5: Refatoracao Expositor com Pessoa + EspacoComercial
+**Como** organizador,
+**Quero** cadastrar expositores vinculados a pessoa e espaco comercial,
+**Para** ter dados centralizados e controle de espacos.
+
+**Criterios de aceite:**
+- [x] Expositor vinculado a Pessoa (pessoa_id)
+- [x] Expositor vinculado a EspacoComercial (espaco_comercial_id)
+- [x] Busca/cria Pessoa automaticamente ao cadastrar expositor
+- [x] Evento ExpositorCadastrado dispara geracao de fatura e envio de email
+- [x] Accessors de compatibilidade (email, nome_empresa_resolvido)
+- [x] Migracao de dados: expositores existentes -> pessoas
+- [x] Testes automatizados
+
+**Arquivos criados/alterados:**
+- `app/Models/Expositor.php` (alterado)
+- `app/Actions/Expositor/CriarExpositor.php` (alterado)
+- `app/Events/ExpositorCadastrado.php`
+- `app/Listeners/Expositor/GerarFaturaExpositor.php`
+- `app/Listeners/Expositor/EnviarEmailExpositor.php`
+- `tests/Feature/Actions/Expositor/CriarExpositorRefatoradoTest.php`
+
+---
+
+#### US-9.6: Gestao de Patrocinadores
+**Como** organizador,
+**Quero** cadastrar patrocinadores para meus eventos,
+**Para** gerenciar cotas de patrocinio.
+
+**Criterios de aceite:**
+- [x] Patrocinador vinculado a Pessoa, Evento e CotaPatrocinio
+- [x] Validar limite de vagas da cota
+- [x] Validar pessoa ja nao e patrocinador do evento
+- [x] Evento PatrocinadorCadastrado dispara geracao de fatura e envio de email
+- [x] CotaPatrocinio com metodos atingiuLimite() e vagas_disponiveis
+- [x] Testes automatizados
+
+**Arquivos criados:**
+- `app/Models/Patrocinador.php`
+- `app/Actions/Patrocinador/Cadastrar.php`
+- `app/Actions/Patrocinador/Listar.php`
+- `app/Events/PatrocinadorCadastrado.php`
+- `app/Listeners/Patrocinador/GerarFaturaPatrocinador.php`
+- `app/Listeners/Patrocinador/EnviarEmailPatrocinador.php`
+- `database/factories/PatrocinadorFactory.php`
+- `tests/Feature/Actions/Patrocinador/CadastrarPatrocinadorTest.php`
+
+---
+
+#### US-9.7: Refatoracao Organizador com Pessoa
+**Como** sistema,
+**Quero** que organizadores usem a entidade Pessoa,
+**Para** centralizar dados cadastrais.
+
+**Criterios de aceite:**
+- [x] Organizador vinculado a Pessoa (pessoa_id)
+- [x] Accessors de compatibilidade (email, nome_empresa, telefone_resolvido)
+- [x] Migracao de dados: organizadores existentes -> pessoas
+- [x] Migrations de limpeza preparadas (comentadas para execucao gradual)
+
+**Arquivos criados/alterados:**
+- `app/Models/Organizador.php` (alterado)
+- Migrations de limpeza (comentadas):
+  - `2026_04_08_100010_make_pessoa_id_required.php`
+  - `2026_04_08_100011_remove_legacy_columns.php`
+  - `2026_04_08_100012_drop_stands_espacos_tables.php`
 
 ---
 
@@ -1323,11 +1451,15 @@ Este documento lista funcionalidades implementadas, em andamento e planejadas.
 
 Funcionalidades para versões futuras:
 
-### Monetização e Serviços Financeiros
+### Monetizacao e Servicos Financeiros
 
-- [ ] **Cotas de Patrocínio** - Módulo para organizadores criarem e gerenciarem cotas de patrocínio para seus eventos (bronze, prata, ouro, etc.), com benefícios configuráveis e controle de vendas
+- [x] **Cotas de Patrocinio** - Modulo para organizadores criarem e gerenciarem cotas de patrocinio para seus eventos (bronze, prata, ouro, etc.), com beneficios configuraveis e controle de vendas (Implementado v0.7.0)
 - [ ] **Oferta de Seguro** - Integração com seguradoras para oferecer seguros aos organizadores (cancelamento de evento, responsabilidade civil) e expositores (danos a equipamentos, estandes)
 - [ ] **Oferta de Crédito** - Parceria com fintechs para oferecer linhas de crédito aos organizadores (antecipação de receitas, financiamento de estrutura) e expositores (capital de giro, investimento em estandes)
+
+### Integrações Externas
+
+- [ ] **Consulta de CNPJ via API** - Integração com API externa (ReceitaWS, Brasil API, etc.) para consulta automática de dados cadastrais de empresas por CNPJ durante o cadastro de expositores e patrocinadores
 
 ### Funcionalidades Adicionais
 
@@ -1352,4 +1484,4 @@ Funcionalidades para versões futuras:
 
 ---
 
-**Última revisão:** 2026-03-22
+**Ultima revisao:** 2026-04-08
