@@ -24,6 +24,14 @@ services:
       - QUEUE_CONNECTION=redis
       - CACHE_STORE=redis
       - SESSION_DRIVER=redis
+      - MAIL_MAILER=smtp
+      - MAIL_HOST=mailpit
+      - MAIL_PORT=1025
+      - MAIL_USERNAME=null
+      - MAIL_PASSWORD=null
+      - MAIL_ENCRYPTION=null
+      - MAIL_FROM_ADDRESS=noreply@bizzexpo.com.br
+      - MAIL_FROM_NAME=BizzExpo
       - AWS_ACCESS_KEY_ID=rustfsadmin
       - AWS_SECRET_ACCESS_KEY=rustfsadmin
       - AWS_DEFAULT_REGION=us-east-1
@@ -39,6 +47,8 @@ services:
         condition: service_healthy
       rustfs:
         condition: service_healthy
+      mailpit:
+        condition: service_started
     networks:
       - bizzexpo-network
     command: php artisan serve --host=0.0.0.0 --port=8080
@@ -65,6 +75,14 @@ services:
       - REDIS_PORT=6379
       - QUEUE_CONNECTION=redis
       - CACHE_STORE=redis
+      - MAIL_MAILER=smtp
+      - MAIL_HOST=mailpit
+      - MAIL_PORT=1025
+      - MAIL_USERNAME=null
+      - MAIL_PASSWORD=null
+      - MAIL_ENCRYPTION=null
+      - MAIL_FROM_ADDRESS=noreply@bizzexpo.com.br
+      - MAIL_FROM_NAME=BizzExpo
       - AWS_ACCESS_KEY_ID=rustfsadmin
       - AWS_SECRET_ACCESS_KEY=rustfsadmin
       - AWS_DEFAULT_REGION=us-east-1
@@ -75,6 +93,7 @@ services:
       - FILESYSTEM_DISK=s3
     depends_on:
       - api
+      - mailpit
     networks:
       - bizzexpo-network
     command: php artisan queue:work --tries=3 --timeout=90
