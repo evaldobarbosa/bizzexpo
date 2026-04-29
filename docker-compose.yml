@@ -36,7 +36,7 @@ services:
       - AWS_SECRET_ACCESS_KEY=rustfsadmin
       - AWS_DEFAULT_REGION=us-east-1
       - AWS_BUCKET=bizzexpo
-      - AWS_URL=http://rustfs:9000/bizzexpo
+      - AWS_URL=http://localhost:9000/bizzexpo
       - AWS_ENDPOINT=http://rustfs:9000
       - AWS_USE_PATH_STYLE_ENDPOINT=true
       - FILESYSTEM_DISK=s3
@@ -87,7 +87,7 @@ services:
       - AWS_SECRET_ACCESS_KEY=rustfsadmin
       - AWS_DEFAULT_REGION=us-east-1
       - AWS_BUCKET=bizzexpo
-      - AWS_URL=http://rustfs:9000/bizzexpo
+      - AWS_URL=http://localhost:9000/bizzexpo
       - AWS_ENDPOINT=http://rustfs:9000
       - AWS_USE_PATH_STYLE_ENDPOINT=true
       - FILESYSTEM_DISK=s3
@@ -122,7 +122,7 @@ services:
       - AWS_SECRET_ACCESS_KEY=rustfsadmin
       - AWS_DEFAULT_REGION=us-east-1
       - AWS_BUCKET=bizzexpo
-      - AWS_URL=http://rustfs:9000/bizzexpo
+      - AWS_URL=http://localhost:9000/bizzexpo
       - AWS_ENDPOINT=http://rustfs:9000
       - AWS_USE_PATH_STYLE_ENDPOINT=true
       - FILESYSTEM_DISK=s3
@@ -192,6 +192,8 @@ services:
     image: rustfs/rustfs:latest
     container_name: bizzexpo-rustfs
     user: "10001:10001"
+    ports:
+      - "9000:9000"
     volumes:
       - rustfs_data:/data
       - rustfs_logs:/logs
