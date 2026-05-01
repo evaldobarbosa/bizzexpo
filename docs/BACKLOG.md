@@ -1501,6 +1501,26 @@ Funcionalidades para versões futuras:
 
 ---
 
+## Débitos Técnicos
+
+### [MODERADA] Check-in - Cobertura de Testes e Validações
+
+**Data:** 2026-05-01
+**Contexto:** Análise do sistema de check-in identificou pontos de melhoria
+
+| # | Descrição | Prioridade | Status |
+|---|-----------|------------|--------|
+| DT-1 | Falta teste de bloqueio para Expositor tentando fazer checkin (Expositor não deve ter permissão de checkin, mas não há teste cobrindo este cenário) | Moderada | Pendente |
+| DT-2 | Staff pode ser adicionado mesmo sendo Expositor ou Participante no mesmo evento (comportamento aceitável mas sem validação explícita documentando a decisão) | Moderada | Pendente |
+| DT-3 | Model Staff com `$fillable = []` vazio (funciona via `associate()` mas não é explícito sobre quais campos são preenchíveis) | Moderada | Pendente |
+
+**Ações recomendadas:**
+- [ ] DT-1: Criar teste em `tests/Feature/Checkin/` verificando que Expositor recebe 403 ao tentar check-in
+- [ ] DT-2: Documentar decisão de permitir usuário com múltiplos papéis OU adicionar validação no cadastro de Staff
+- [ ] DT-3: Revisar Model Staff e documentar por que `$fillable` está vazio ou adicionar campos explícitos
+
+---
+
 ## Notas
 
 - **Priorização:** Seguir ordem dos épicos
@@ -1510,4 +1530,4 @@ Funcionalidades para versões futuras:
 
 ---
 
-**Ultima revisao:** 2026-04-08 (Sprints 1-5 da refatoracao concluidas)
+**Ultima revisao:** 2026-05-01 (Adicionados débitos técnicos do check-in)
